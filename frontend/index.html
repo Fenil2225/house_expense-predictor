@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        HousePredict | Expense Predictor
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- Chart.js -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+<!-- =====================================
+     NAVBAR
+====================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <span class="logo-icon">
+            🏠
+        </span>
+
+        House<span>Predict</span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#analytics">
+            Analytics
+        </a>
+
+        <a href="#predictor">
+            Predictor
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            onclick="toggleTheme()"
+        >
+            🌙
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================
+     HERO
+====================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ✨ PYTHON FOR DATA SCIENCE
+        </div>
+
+
+        <h1>
+
+            Smart House
+
+            <span>
+                Expense Predictor
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Predict your estimated monthly
+            house expense using Machine Learning
+            and explore meaningful data insights.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#predictor"
+                class="hero-button"
+            >
+                Start Prediction →
+            </a>
+
+
+            <a
+                href="#analytics"
+                class="secondary-button"
+            >
+                View Analytics
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-decoration">
+
+        <div class="floating-card card-one">
+            📊
+            <span>Data Analytics</span>
+        </div>
+
+        <div class="floating-card card-two">
+            🤖
+            <span>ML Prediction</span>
+        </div>
+
+        <div class="floating-card card-three">
+            💰
+            <span>Expense Insights</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ANALYTICS
+====================================== -->
+
+<section
+    class="analytics-section"
+    id="analytics"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            DATA ANALYTICS
+        </p>
+
+        <h2>
+            House Expense Insights
+        </h2>
+
+        <p>
+            Explore patterns and trends
+            from our house expense dataset.
+        </p>
+
+    </div>
+
+
+    <!-- STAT CARDS -->
+
+    <div class="stats-container">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏠
+            </div>
+
+            <div>
+
+                <p>
+                    Total Houses
+                </p>
+
+                <h3 id="totalHouses">
+                    --
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💰
+            </div>
+
+            <div>
+
+                <p>
+                    Average Expense
+                </p>
+
+                <h3 id="averageExpense">
+                    --
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📉
+            </div>
+
+            <div>
+
+                <p>
+                    Minimum Expense
+                </p>
+
+                <h3 id="minimumExpense">
+                    --
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📈
+            </div>
+
+            <div>
+
+                <p>
+                    Maximum Expense
+                </p>
+
+                <h3 id="maximumExpense">
+                    --
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODEL PERFORMANCE -->
+
+    <div class="model-performance">
+
+        <div class="performance-content">
+
+            <div class="performance-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <p>
+                    MACHINE LEARNING MODEL
+                </p>
+
+                <h3>
+                    Linear Regression
+                </h3>
+
+                <span>
+                    Trained using house expense dataset
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="performance-score">
+
+            <strong id="modelScore">
+                --
+            </strong>
+
+            <span>
+                R² Score
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHARTS -->
+
+    <div class="charts-container">
+
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span>
+                        📊
+                    </span>
+
+                    <h3>
+                        House Size vs Expense
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="sizeExpenseChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span>
+                        ⚡
+                    </span>
+
+                    <h3>
+                        Electricity vs Expense
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="electricityExpenseChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     PREDICTOR
+====================================== -->
+
+<section
+    class="predictor-section"
+    id="predictor"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            MACHINE LEARNING
+        </p>
+
+        <h2>
+            Predict Your House Expense
+        </h2>
+
+        <p>
+            Enter your house details and let
+            our ML model estimate your expense.
+        </p>
+
+    </div>
+
+
+    <div class="predictor-container">
+
+
+        <!-- INPUT CARD -->
+
+        <div class="input-card">
+
+            <div class="card-title">
+
+                <div class="card-title-icon">
+                    🏠
+                </div>
+
+                <div>
+
+                    <h3>
+                        House Details
+                    </h3>
+
+                    <p>
+                        Enter your monthly details
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SIZE -->
+
+            <div class="input-group">
+
+                <label for="size">
+                    House Size
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="size"
+                        placeholder="e.g. 1200"
+                        min="100"
+                    >
+
+                    <span>
+                        sq.ft
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BEDROOMS -->
+
+            <div class="input-group">
+
+                <label for="bedrooms">
+                    Number of Bedrooms
+                </label>
+
+                <input
+                    type="number"
+                    id="bedrooms"
+                    placeholder="e.g. 2"
+                    min="1"
+                >
+
+            </div>
+
+
+            <!-- PEOPLE -->
+
+            <div class="input-group">
+
+                <label for="people">
+                    Number of People
+                </label>
+
+                <input
+                    type="number"
+                    id="people"
+                    placeholder="e.g. 4"
+                    min="1"
+                >
+
+            </div>
+
+
+            <!-- ELECTRICITY -->
+
+            <div class="input-group">
+
+                <label for="electricity">
+                    Electricity Usage
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="electricity"
+                        placeholder="e.g. 250"
+                        min="0"
+                    >
+
+                    <span>
+                        units
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WATER -->
+
+            <div class="input-group">
+
+                <label for="water">
+                    Water Usage
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="water"
+                        placeholder="e.g. 15"
+                        min="0"
+                    >
+
+                    <span>
+                        KL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="predictButton"
+                class="predict-button"
+                onclick="predictExpense()"
+            >
+                🔮 Predict Expense
+            </button>
+
+
+            <p
+                id="errorMessage"
+                class="error-message"
+            ></p>
+
+        </div>
+
+
+        <!-- RESULT CARD -->
+
+        <div class="result-card">
+
+            <div class="result-top">
+
+                <div class="result-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <p class="result-label">
+                        ESTIMATED MONTHLY EXPENSE
+                    </p>
+
+                    <h2 id="prediction">
+                        ₹0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="expenseCategory"
+                class="expense-category"
+            >
+                —
+            </div>
+
+
+            <p id="result-message">
+                Enter your house details and
+                click predict.
+            </p>
+
+
+            <div class="result-info">
+
+
+                <div class="info-item">
+
+                    <span>
+                        🏠
+                    </span>
+
+                    <div>
+
+                        <small>
+                            House Size
+                        </small>
+
+                        <strong id="resultSize">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        🛏️
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Bedrooms
+                        </small>
+
+                        <strong id="resultBedrooms">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        👨‍👩‍👧
+                    </span>
+
+                    <div>
+
+                        <small>
+                            People
+                        </small>
+
+                        <strong id="resultPeople">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECENT PREDICTIONS -->
+
+    <div class="recent-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                ACTIVITY
+            </p>
+
+            <h2>
+                Recent Predictions
+            </h2>
+
+            <p>
+                Your latest predictions are
+                stored locally in your browser.
+            </p>
+
+        </div>
+
+
+        <div
+            id="recentPredictions"
+            class="recent-list"
+        >
+
+            <p class="empty-history">
+                No predictions yet.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ABOUT
+====================================== -->
+
+<section
+    class="about-section"
+    id="about"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            ABOUT PROJECT
+        </p>
+
+        <h2>
+            How It Works
+        </h2>
+
+        <p>
+            A simple Data Science workflow
+            from input to prediction.
+        </p>
+
+    </div>
+
+
+    <div class="steps-container">
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Enter Details
+            </h3>
+
+            <p>
+                Enter house size, bedrooms,
+                family members, electricity
+                and water usage.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Machine Learning
+            </h3>
+
+            <p>
+                Our Linear Regression model
+                analyzes the provided house
+                details.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Get Prediction
+            </h3>
+
+            <p>
+                The system predicts your
+                estimated monthly house
+                expense.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Analyze Data
+            </h3>
+
+            <p>
+                Dashboard charts and statistics
+                help understand expense patterns.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     FOOTER
+====================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        🏠 HousePredict
+    </div>
+
+    <p>
+        Python for Data Science Mini Project
+    </p>
+
+    <p>
+        © 2026 House Expense Predictor
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
