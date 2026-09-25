@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
 import pandas as pd
+from pathlib import Path
 
 from sklearn.metrics import r2_score, mean_absolute_error
 
@@ -14,12 +15,14 @@ app = Flask(__name__)
 
 CORS(app)
 
+BASE_DIR = Path(__file__).resolve().parent
+
 
 # ==========================================
 # LOAD MODEL
 # ==========================================
 
-model = joblib.load("backend/model.pkl")
+model = joblib.load(BASE_DIR / "model.pkl")
 
 
 # ==========================================
@@ -27,7 +30,7 @@ model = joblib.load("backend/model.pkl")
 # ==========================================
 
 dataset = pd.read_csv(
-    "backend/house_expenses.csv"
+    BASE_DIR / "house_expenses.csv"
 )
 
 

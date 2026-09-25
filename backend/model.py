@@ -1,5 +1,6 @@
 import pandas as pd
 import joblib
+from pathlib import Path
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -10,8 +11,10 @@ from sklearn.metrics import r2_score, mean_absolute_error
 # LOAD DATASET
 # ==========================================
 
+BASE_DIR = Path(__file__).resolve().parent
+
 data = pd.read_csv(
-    "backend/house_expenses.csv"
+    BASE_DIR / "house_expenses.csv"
 )
 
 
@@ -110,7 +113,7 @@ print(
 
 joblib.dump(
     model,
-    "backend/model.pkl"
+    BASE_DIR / "model.pkl"
 )
 
 
