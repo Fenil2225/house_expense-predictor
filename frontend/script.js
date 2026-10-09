@@ -2,8 +2,13 @@
 // API URL
 // ==========================================
 
-const API_URL =
-    "http://127.0.0.1:5000";
+const isLocalFrontend =
+    window.location.protocol === "file:" ||
+    (["localhost", "127.0.0.1", "::1"].includes(window.location.hostname) &&
+        window.location.port !== "5000");
+const API_URL = isLocalFrontend
+    ? "http://127.0.0.1:5000"
+    : "";
 
 
 // ==========================================
