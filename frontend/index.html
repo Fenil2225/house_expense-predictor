@@ -14,6 +14,7 @@
         HousePredict | Expense Predictor
     </title>
 
+    <link rel="icon" type="image/png" href="favicon.png">
     <link
         rel="stylesheet"
         href="style.css"
@@ -57,8 +58,16 @@
             Analytics
         </a>
 
+        <a href="#insights">
+            Insights
+        </a>
+
         <a href="#predictor">
             Predictor
+        </a>
+
+        <a href="#compare">
+            Compare
         </a>
 
         <a href="#about">
@@ -290,7 +299,7 @@
             <div>
 
                 <p>
-                    MACHINE LEARNING MODEL
+                    MACHINE LEARNING MODEL (TEST EVALUATION)
                 </p>
 
                 <h3>
@@ -298,7 +307,7 @@
                 </h3>
 
                 <span>
-                    Trained using house expense dataset
+                    Trained &amp; evaluated on 20% unseen test data
                 </span>
 
             </div>
@@ -306,15 +315,43 @@
         </div>
 
 
-        <div class="performance-score">
+        <div class="performance-metrics-group">
 
-            <strong id="modelScore">
-                --
-            </strong>
+            <div class="performance-score">
 
-            <span>
-                R² Score
-            </span>
+                <strong id="modelScore">
+                    --
+                </strong>
+
+                <span>
+                    R² Score
+                </span>
+
+            </div>
+
+            <div class="performance-score">
+
+                <strong id="modelMae">
+                    --
+                </strong>
+
+                <span>
+                    MAE
+                </span>
+
+            </div>
+
+            <div class="performance-score">
+
+                <strong id="modelRmse">
+                    --
+                </strong>
+
+                <span>
+                    RMSE
+                </span>
+
+            </div>
 
         </div>
 
@@ -325,6 +362,8 @@
 
     <div class="charts-container">
 
+
+        <!-- HOUSE SIZE VS EXPENSE -->
 
         <div class="chart-card">
 
@@ -356,6 +395,8 @@
         </div>
 
 
+        <!-- ELECTRICITY VS EXPENSE -->
+
         <div class="chart-card">
 
             <div class="chart-header">
@@ -380,6 +421,234 @@
                 <canvas
                     id="electricityExpenseChart"
                 ></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXPENSE DISTRIBUTION HISTOGRAM -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span>
+                        📈
+                    </span>
+
+                    <h3>
+                        Expense Distribution Histogram
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="expenseDistributionChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- BEDROOMS VS AVERAGE EXPENSE -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span>
+                        🛏️
+                    </span>
+
+                    <h3>
+                        Bedrooms vs Average Expense
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="bedroomsExpenseChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTUAL VS PREDICTED SCATTER PLOT -->
+
+        <div class="chart-card chart-card-full">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span>
+                        🎯
+                    </span>
+
+                    <h3>
+                        Actual vs Predicted Expense (Model Evaluation)
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="actualVsPredictedChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SMART EXPENSE INSIGHTS -->
+
+    <div class="insights-section" id="insights">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                DATA INTELLIGENCE
+            </p>
+
+            <h2>
+                Smart Expense Insights
+            </h2>
+
+            <p>
+                Empirical patterns and key cost drivers discovered from 1,000 surveyed households.
+            </p>
+
+        </div>
+
+
+        <div class="insights-grid">
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    🏠
+                </div>
+
+                <span class="insight-tag">
+                    Dominant Driver · r = 0.945
+                </span>
+
+                <h3>
+                    Size &amp; Bedroom Impact
+                </h3>
+
+                <p>
+                    House size and bedroom count have the strongest correlation with monthly expenses (r = 0.945 &amp; 0.941). Each additional bedroom adds an average of <strong>₹2,596</strong> per month.
+                </p>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    ⚡
+                </div>
+
+                <span class="insight-tag">
+                    Utility Threshold · 329 Units
+                </span>
+
+                <h3>
+                    Electricity Usage Premium
+                </h3>
+
+                <p>
+                    Homes consuming above the dataset average (329 units) incur an average monthly expense of <strong>₹17,297</strong> vs <strong>₹10,340</strong> for lower consumption homes — a <strong>₹6,957</strong> difference.
+                </p>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    👨‍👩‍👧
+                </div>
+
+                <span class="insight-tag">
+                    Occupancy Curve · +₹2,095/Person
+                </span>
+
+                <h3>
+                    Family Size Scaling
+                </h3>
+
+                <p>
+                    Expenses scale steadily from <strong>₹7,215</strong> for single-person homes up to <strong>₹21,878</strong> for 8 occupants, averaging an additional <strong>₹2,095</strong> in baseline operational costs per person.
+                </p>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    📊
+                </div>
+
+                <span class="insight-tag">
+                    Middle 50% · ₹10.5k – ₹17.5k
+                </span>
+
+                <h3>
+                    Benchmark Expense Tiers
+                </h3>
+
+                <p>
+                    The interquartile range shows 50% of surveyed homes spend between <strong>₹10,481</strong> (25th percentile) and <strong>₹17,512</strong> (75th percentile), with an overall median of <strong>₹13,962</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    🤖
+                </div>
+
+                <span class="insight-tag">
+                    R² = 96.09% · MAE = ₹664.55
+                </span>
+
+                <h3>
+                    Model Explanatory Power
+                </h3>
+
+                <p>
+                    Linear Regression achieves a genuine <strong>96.09% R²</strong> and <strong>₹824.76 RMSE</strong> on unseen test data, proving that size, occupancy, and utilities reliably explain expense variances.
+                </p>
 
             </div>
 
@@ -683,6 +952,16 @@
 
             </div>
 
+            <div class="result-actions">
+                <button
+                    id="downloadReportBtn"
+                    class="download-report-button"
+                    onclick="downloadPredictionReport()"
+                >
+                    📥 Download Prediction Report (CSV)
+                </button>
+            </div>
+
         </div>
 
     </div>
@@ -720,6 +999,408 @@
             </p>
 
         </div>
+
+        <div class="recent-actions">
+            <button
+                id="exportHistoryBtn"
+                class="export-history-button"
+                onclick="downloadPredictionReport()"
+            >
+                📥 Export All Predictions (CSV)
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     COMPARE TWO HOUSES
+====================================== -->
+
+<section
+    class="compare-section"
+    id="compare"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            SIDE-BY-SIDE COMPARISON
+        </p>
+
+        <h2>
+            Compare Two Houses
+        </h2>
+
+        <p>
+            Evaluate two house configurations side-by-side to understand expense differences.
+        </p>
+
+    </div>
+
+
+    <div class="compare-container">
+
+        <!-- HOUSE OPTION A -->
+
+        <div class="input-card compare-card">
+
+            <div class="card-title">
+
+                <div class="card-title-icon">
+                    🏠
+                </div>
+
+                <div>
+
+                    <h3>
+                        House Option A
+                    </h3>
+
+                    <p>
+                        Enter details for property A
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_size_1">
+                    House Size
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="comp_size_1"
+                        placeholder="e.g. 1000"
+                        min="100"
+                    >
+
+                    <span>
+                        sq.ft
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_bedrooms_1">
+                    Number of Bedrooms
+                </label>
+
+                <input
+                    type="number"
+                    id="comp_bedrooms_1"
+                    placeholder="e.g. 2"
+                    min="1"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_people_1">
+                    Number of People
+                </label>
+
+                <input
+                    type="number"
+                    id="comp_people_1"
+                    placeholder="e.g. 3"
+                    min="1"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_electricity_1">
+                    Electricity Usage
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="comp_electricity_1"
+                        placeholder="e.g. 200"
+                        min="0"
+                    >
+
+                    <span>
+                        units
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_water_1">
+                    Water Usage
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="comp_water_1"
+                        placeholder="e.g. 15"
+                        min="0"
+                    >
+
+                    <span>
+                        KL
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HOUSE OPTION B -->
+
+        <div class="input-card compare-card">
+
+            <div class="card-title">
+
+                <div class="card-title-icon">
+                    🏡
+                </div>
+
+                <div>
+
+                    <h3>
+                        House Option B
+                    </h3>
+
+                    <p>
+                        Enter details for property B
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_size_2">
+                    House Size
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="comp_size_2"
+                        placeholder="e.g. 1500"
+                        min="100"
+                    >
+
+                    <span>
+                        sq.ft
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_bedrooms_2">
+                    Number of Bedrooms
+                </label>
+
+                <input
+                    type="number"
+                    id="comp_bedrooms_2"
+                    placeholder="e.g. 3"
+                    min="1"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_people_2">
+                    Number of People
+                </label>
+
+                <input
+                    type="number"
+                    id="comp_people_2"
+                    placeholder="e.g. 4"
+                    min="1"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_electricity_2">
+                    Electricity Usage
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="comp_electricity_2"
+                        placeholder="e.g. 300"
+                        min="0"
+                    >
+
+                    <span>
+                        units
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="comp_water_2">
+                    Water Usage
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="comp_water_2"
+                        placeholder="e.g. 20"
+                        min="0"
+                    >
+
+                    <span>
+                        KL
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="compare-action-wrap">
+
+        <button
+            id="compareButton"
+            class="predict-button"
+            onclick="compareHouses()"
+        >
+            ⚖️ Compare Houses
+        </button>
+
+        <p
+            id="compareErrorMessage"
+            class="error-message"
+        ></p>
+
+    </div>
+
+
+    <!-- COMPARISON RESULT CARD -->
+
+    <div
+        id="compareResult"
+        class="compare-result-card"
+        style="display: none;"
+    >
+
+        <div class="compare-summary-header">
+
+            <div>
+                <h3>
+                    Comparison Summary
+                </h3>
+                <p id="compareSummaryText" style="font-size: 13px; color: #6b7280; margin-top: 4px;">
+                    Estimated monthly expense difference
+                </p>
+            </div>
+
+            <span
+                id="compareDifferenceBadge"
+                class="compare-diff-badge"
+            >
+                —
+            </span>
+
+        </div>
+
+
+        <div class="compare-tiles">
+
+            <div class="compare-tile">
+
+                <p>
+                    🏠 House Option A
+                </p>
+
+                <h4 id="compA_Expense">
+                    ₹0
+                </h4>
+
+                <span id="compA_Sub">
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="compare-tile-vs">
+                VS
+            </div>
+
+
+            <div class="compare-tile">
+
+                <p>
+                    🏡 House Option B
+                </p>
+
+                <h4 id="compB_Expense">
+                    ₹0
+                </h4>
+
+                <span id="compB_Sub">
+                    —
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="compare-breakdown"
+            id="compareBreakdown"
+        ></div>
 
     </div>
 

@@ -4,7 +4,16 @@ from pathlib import Path
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score, mean_absolute_error
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+import numpy as np
+import sys
+
+# Ensure UTF-8 output encoding for console
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 
 # ==========================================
@@ -94,6 +103,12 @@ mae = mean_absolute_error(
 )
 
 
+rmse = float(np.sqrt(mean_squared_error(
+    y_test,
+    predictions
+)))
+
+
 print("--------------------------------")
 print("House Expense Predictor")
 print("--------------------------------")
@@ -104,6 +119,10 @@ print(
 
 print(
     f"MAE: ₹{mae:.2f}"
+)
+
+print(
+    f"RMSE: ₹{rmse:.2f}"
 )
 
 
